@@ -28,10 +28,6 @@ public class ProdutoService {
         return produtoRepository.findAll();
     }
 
-    public Produto listarPorId(Long id) {
-        return produtoRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Produto não encontrado"));
-    }
-    
     public Produto listarPorNome(String nome) {
         return produtoRepository.findByNome(nome).orElseThrow(() -> new IllegalArgumentException("Produto não encontrado"));
     }

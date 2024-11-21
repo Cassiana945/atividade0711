@@ -16,22 +16,17 @@ public class ClienteController {
     private ClienteService clienteService;
 
     @PostMapping 
-    public Cliente criar(@RequestBody Cliente cliente) {
+    public Cliente criar(@RequestBody Cliente cliente) {   //criar
         return clienteService.criar(cliente);
     }
 
     @GetMapping 
-    public List<Cliente> listar() {
+    public List<Cliente> listar() {                        //listar
         return clienteService.listar();
     }
 
-    @GetMapping("/{id}")
-    public Cliente listarPorId(@PathVariable Long id) {
-        return clienteService.listarPorId(id);
-    }
-
     @GetMapping("/nome/{nome}")
-    public Cliente listarPorNome(@PathVariable String nome) {
+    public Cliente listarPorNome(@PathVariable String nome) {      //buscar por nome
         return clienteService.listarPorNome(nome);
     }
     

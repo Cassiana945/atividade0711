@@ -25,11 +25,6 @@ public class ProdutoController {
         return produtoService.listar();
     }
 
-    @GetMapping("/{id}")
-    public Produto listarPorId(@PathVariable Long id) {
-        return produtoService.listarPorId(id);
-    }
-
     @GetMapping("/nome/{nome}")
     public Produto listarPorNome(@PathVariable String nome) {
         return produtoService.listarPorNome(nome);

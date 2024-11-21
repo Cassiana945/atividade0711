@@ -3,6 +3,7 @@ package com.example.demo;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.junit.jupiter.api.Test;
@@ -19,16 +20,22 @@ public class ProdutoRepositoryTest {
     private ProdutoRepository produtoRepository;
 
     @Test
-    public void quandoSalvarProduto_entaoEncontrarPorNomeEId() {
+    public void quandoSalvarProduto_entaoEncontrarPorNome() {
         Produto produto = new Produto();
         produto.setNome("Maça");
         produto.setPreco(3.50); 
 
-        produtoRepository.save(produto);
+        Produto produto2 = new Produto();
+        produto2.setNome("Melancia");
+        produto2.setPreco(10.50); 
 
-        Optional<Produto> encontradoPorId = produtoRepository.findById(produto.getId());
-        assertTrue(encontradoPorId.isPresent());
-        assertEquals("Maça", encontradoPorId.get().getNome());
+
+        produtoRepository.save(produto);
+        produtoRepository.save(produto2);
+
+        List<Produto> produtos = produtoRepository.findAll();
+
+        assertEquals(2, produtos.size(), "Deve retornar 2 produtos");
 
         Optional<Produto> encontradoPorNome = produtoRepository.findByNome("Maça");
         assertTrue(encontradoPorNome.isPresent());

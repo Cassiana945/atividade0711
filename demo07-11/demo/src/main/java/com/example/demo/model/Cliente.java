@@ -2,10 +2,12 @@ package com.example.demo.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 
 @Entity
+@Table(name = "cliente")
 public class Cliente {
    
     @Id
@@ -19,9 +21,10 @@ public class Cliente {
 
     }
 
-    public Cliente(String nome, String contato) {
+    public Cliente(String nome, String contato, String email) {
         this.nome = nome;
         this.contato = contato;
+        this.email = email;
     }
 
     public Long getId() {

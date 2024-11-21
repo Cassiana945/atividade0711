@@ -21,7 +21,7 @@ public class PedidoController {
     }
 
     @GetMapping
-    public List<Pedido> listarTodos() {
+    public List<Pedido> listar() {
         return pedidoService.listar();
     }
 

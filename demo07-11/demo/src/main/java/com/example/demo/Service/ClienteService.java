@@ -22,11 +22,8 @@ public class ClienteService {
     }
 
     public List<Cliente> listar() {
-        return clienteRepository.findAll();
-    }
-
-    public Cliente listarPorId(Long id) {
-        return clienteRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Cliente não encontrado"));
+       return clienteRepository.findAll();
+       
     }
 
     public Cliente listarPorNome(String nome) {
